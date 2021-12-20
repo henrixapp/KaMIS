@@ -4,7 +4,8 @@
  * Source of KaHIP -- Karlsruhe High Quality Partitioning.
  * Christian Schulz <christian.schulz.phone@gmail.com>
  *****************************************************************************/
-
+//TODO: Open a pullrequest in KaHIP to include the clear functionality.
+//This file is only temporary
 #ifndef MAX_NODE_HEAP_39CK1B8I
 #define MAX_NODE_HEAP_39CK1B8I
 

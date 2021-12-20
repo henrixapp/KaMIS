@@ -18,6 +18,7 @@
 #include "mis_log.h"
 #include "graph_access.h"
 #include "graph_io.h"
+#include "../lib/tools/mis_graph_io.h"
 #include "mis_config.h"
 #include "parse_parameters.h"
 #include "branch_and_reduce_algorithm.h"
@@ -80,8 +81,7 @@ int main(int argn, char **argv) {
 
         // Read the graph
         graph_access G;
-        std::string comments;
-        graph_io::readGraphWeighted(G, graph_filepath, comments);
+        graph_io::readGraphWeighted(G, graph_filepath);
         assign_weights(G, mis_config);
 
         mis_log::instance()->set_graph(G);
@@ -118,7 +118,7 @@ int main(int argn, char **argv) {
                 std::cout << "MIS_weight_check " << is_weight << std::endl;
         }
 
-        if (mis_config.write_graph) graph_io::writeIndependentSet(G, mis_config.output_filename);
+        if (mis_config.write_graph) mis_graph_io::writeIndependentSet(G, mis_config.output_filename);
 
         return 0;
 }

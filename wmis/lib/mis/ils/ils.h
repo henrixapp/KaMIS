@@ -10,11 +10,12 @@
 #define _ILS_H_
 
 #include <vector>
-
+#include "data_structure/priority_queues/maxNodeHeap2.h"
 #include "timer.h"
 #include "mis_config.h"
 #include "local_search.h"
 #include "data_structure/graph_access.h"
+
 
 class ils {
     public:

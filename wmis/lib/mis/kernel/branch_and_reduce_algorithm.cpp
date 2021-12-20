@@ -4,7 +4,7 @@
 #include "branch_and_reduce_algorithm.h"
 #include "ils/ils.h"
 #include "ils/local_search.h"
-#include "strongly_connected_components.h"
+#include "algorithms/strongly_connected_components.h"
 #include "graph_extractor.h"
 
 #include <algorithm>

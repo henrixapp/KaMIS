@@ -24,6 +24,7 @@
 #include "greedy_mis.h"
 #include "parse_parameters.h"
 #include "branch_and_reduce_algorithm.h"
+#include "../lib/tools/mis_graph_io.h"
 
 
 void initial_is(graph_access& G) {
@@ -166,7 +167,7 @@ int main(int argn, char **argv) {
     // Read the graph
     graph_access G;
 	std::string comments;
-    graph_io::readGraphWeighted(G, graph_filepath, comments);
+    mis_graph_io::readGraphWeighted(G, graph_filepath, comments);
 	assign_weights(G, mis_config);
 
     mis_log::instance()->set_graph(G);
@@ -239,7 +240,7 @@ int main(int argn, char **argv) {
 		perform_ils(mis_config, G, weight_offset);
 	}
 
-        if (mis_config.write_graph) graph_io::writeIndependentSet(G, mis_config.output_filename);
+        if (mis_config.write_graph) mis_graph_io::writeIndependentSet(G, mis_config.output_filename);
 
     return 0;
 }

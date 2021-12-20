@@ -10,6 +10,7 @@
 #define _DIRECT_LOCAL_H_
 
 #include <vector>
+#include "data_structure/priority_queues/maxNodeHeap2.h"
 
 #include "mis_config.h"
 #include "data_structure/graph_access.h"

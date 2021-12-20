@@ -75,7 +75,8 @@ if(64BITMODE)
 endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extern/argtable3-3.0.3)
-add_subdirectory(wmis)
+add_subdirectory(extern/KaHIP EXCLUDE_FROM_ALL)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/app)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extern/argtable3-3.0.3)
@@ -88,7 +89,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extern/KaHIP/lib/partition)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extern/KaHIP/lib/partition/uncoarsening/refinement/quotient_graph_refinement/flow_refinement)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extern/KaHIP/lib/partition/uncoarsening/refinement/cycle_improvements/)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/extern/KaHIP/lib/tools)
-
+add_subdirectory(wmis)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/mis)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/mis/evolutionary)
@@ -99,7 +100,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/io)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/tools)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/algorithms)
 
-add_subdirectory(extern/KaHIP EXCLUDE_FROM_ALL)
 
 set(LIBSOURCE_SOURCE_FILES
 lib/tools/mis_log.cpp
