@@ -8,7 +8,7 @@
 
 #include "mis_log.h"
 #include "diversifier.h"
-
+#include "kahip_part_impl.h"
 separator_pool::separator_pool() {
     
 }

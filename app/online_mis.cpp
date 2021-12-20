@@ -12,6 +12,7 @@
 #include "data_structure/graph_access.h"
 #include "data_structure/mis_permutation.h"
 #include "graph_io.h"
+#include "mis_graph_io.h"
 #include "greedy_mis.h"
 #include "ils/online_ils.h"
 #include "ils/local_search.h"
@@ -63,7 +64,7 @@ int main(int argn, char **argv) {
   mis_log::instance()->print_results_online();
   //if (mis_config.print_log) mis_log::instance()->write_log();
   if (mis_config.write_graph)
-    graph_io::writeIndependentSet(G, mis_config.output_filename);
+    mis_graph_io::writeIndependentSet(G, mis_config.output_filename);
 
   //std::cout << "insert folds ..." << std::endl;
   //std::stack<std::tuple<NodeID, NodeID, NodeID>> &folds = online.get_folds();

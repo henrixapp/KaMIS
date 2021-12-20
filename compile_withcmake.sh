@@ -15,12 +15,12 @@ rm -rf build
 mkdir build
 cd build
 cmake ../
-make -j $NCORES
+make -j $NCORES all graphchecker
 cd ..
 
 mkdir deploy
 cp ./build/redumis deploy/
-cp ./build/graphchecker deploy/
+cp ./build/extern/KaHIP/graphchecker deploy/ 
 cp ./build/sort_adjacencies deploy/
 cp ./build/online_mis deploy/
 cp ./build/wmis/branch_reduce  deploy/weighted_branch_reduce

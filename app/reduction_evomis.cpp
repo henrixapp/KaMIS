@@ -14,6 +14,7 @@
 #include "ils/local_search.h"
 #include "mis_log.h"
 #include "graph_io.h"
+#include "mis_graph_io.h"
 #include "reduction_evolution.h"
 #include "mis_config.h"
 #include "greedy_mis.h"
@@ -33,7 +34,7 @@ int run(MISConfig &mis_config, graph_access &G) {
 
     mis_log::instance()->print_results();
     if (mis_config.print_log) mis_log::instance()->write_log();
-    if (mis_config.write_graph) graph_io::writeIndependentSet(G, mis_config.output_filename);
+    if (mis_config.write_graph) mis_graph_io::writeIndependentSet(G, mis_config.output_filename);
 
     std::cout <<  "checking solution ..."  << std::endl;
     int counter = 0;
