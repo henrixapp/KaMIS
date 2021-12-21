@@ -56,10 +56,13 @@ add_definitions(-Wno-unused-result)
 endif()
 
 # check dependencies
-find_package(OpenMP)
+find_package(OpenMP REQUIRED)
 if(OpenMP_CXX_FOUND)
   message(STATUS "OpenMP support detected")
   add_definitions(${OpenMP_CXX_FLAGS})
+  if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+    include_directories(/usr/local/include/)
+  endif()
 else()
   message(WARNING "OpenMP not available, activating workaround")
   add_library(OpenMP::OpenMP_CXX IMPORTED INTERFACE)
@@ -131,7 +134,7 @@ lib/mis/kernel/ParFastKer/LinearTime/MIS_sigmod_pub/Graph.cpp
 lib/mis/kernel/ParFastKer/LinearTime/MIS_sigmod_pub/Utility.cpp
 )
 add_library(libfiles OBJECT ${LIBSOURCE_SOURCE_FILES})
-link_libraries(libfiles libkaffpa kahip)
+link_libraries(libfiles libkaffpa kahip ${OpenMP_CXX_LIBRARIES})
 
 
 

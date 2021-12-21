@@ -44,9 +44,10 @@
  * */ 
  
 
-#include <parallel/numeric>
+#include <numeric>
 #include "MaximumMatching.h"
 #include <sys/resource.h>
+#include <omp.h>
 
 void increaseStackLimit(unsigned const size) {
 
@@ -83,7 +84,7 @@ MaximumMatching::MaximumMatching(std::vector<std::vector<int>> const &adjacencyA
 		degree[i] = adjacencyArray[i].size();
 		degree[i + numVertices] = adjacencyArray[i].size();
 	}
-	auto end_ptr = __gnu_parallel::partial_sum(degree, degree + (G->n), (G->vtx_pointer) + 1);
+	auto end_ptr = std::partial_sum(degree, degree + (G->n), (G->vtx_pointer) + 1);//TODO use parallel impl.
 	assert(end_ptr == &(G->vtx_pointer[2 * numVertices]) + 1);
 	G->vtx_pointer[0] = 0;
 	long numEdges = G->vtx_pointer[2 * numVertices];
@@ -148,7 +149,7 @@ void MaximumMatching::LoadGraph(std::vector<SparseArraySet> &neighbors, SimpleSe
 		degree[i] = deg;
 		degree[i + G->nrows] = deg;
 	}
-	auto end_ptr = __gnu_parallel::partial_sum(degree, degree + (G->n), (G->vtx_pointer) + 1);
+	auto end_ptr = std::partial_sum(degree, degree + (G->n), (G->vtx_pointer) + 1);
 	assert(end_ptr == &(G->vtx_pointer[G->n]) + 1);
 	G->vtx_pointer[0] = 0;
 	long numEdges = G->vtx_pointer[G->n];

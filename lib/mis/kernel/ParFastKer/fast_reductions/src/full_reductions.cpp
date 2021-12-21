@@ -6,7 +6,9 @@
 #include <vector>
 #include <memory>
 #include "parallel_reductions.h"
+#ifdef USE_OPENMP
 #include <omp.h>
+#endif
 #include <algorithm>
 #include <fstream>
 #include "kaHIP_interface.h"

@@ -112,7 +112,7 @@ class multiway_combine : public combine {
          * @param pool Pool of k-partitions.
          * @param part The partition that was applied.
          */
-        void apply_k_partition_kahip(MISConfig & config, graph_access & G, separator_pool *pool, partition & part);
+        void apply_k_partition_kahip(MISConfig & config, graph_access & G, separator_pool *pool, ::partition & part);
 
         /**
          * Get a random k-separator from the pool build with the KaHIP-interface.

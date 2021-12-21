@@ -6,9 +6,9 @@
 
 #ifndef _PARSE_PARAMETERS_H_
 #define _PARSE_PARAMETERS_H_
-
+#ifdef USE_OPENMP
 #include <omp.h>
-
+#endif
 #include "configuration_mis.h"
 
 /**
